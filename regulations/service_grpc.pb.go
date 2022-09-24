@@ -27,6 +27,7 @@ type RegulationGRPCClient interface {
 	CreateParagraphs(ctx context.Context, in *CreateParagraphsRequest, opts ...grpc.CallOption) (*CreateParagraphsResponse, error)
 	CreateRegulation(ctx context.Context, in *CreateRegulationRequest, opts ...grpc.CallOption) (*CreateRegulationResponse, error)
 	GenerateLinks(ctx context.Context, in *GenerateLinksRequest, opts ...grpc.CallOption) (*empty.Empty, error)
+	DeleteRegulation(ctx context.Context, in *DeleteRegulationRequest, opts ...grpc.CallOption) (*DeleteRegulationResponse, error)
 }
 
 type regulationGRPCClient struct {
@@ -73,6 +74,15 @@ func (c *regulationGRPCClient) GenerateLinks(ctx context.Context, in *GenerateLi
 	return out, nil
 }
 
+func (c *regulationGRPCClient) DeleteRegulation(ctx context.Context, in *DeleteRegulationRequest, opts ...grpc.CallOption) (*DeleteRegulationResponse, error) {
+	out := new(DeleteRegulationResponse)
+	err := c.cc.Invoke(ctx, "/RegulationGRPC/deleteRegulation", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // RegulationGRPCServer is the server API for RegulationGRPC service.
 // All implementations must embed UnimplementedRegulationGRPCServer
 // for forward compatibility
@@ -81,6 +91,7 @@ type RegulationGRPCServer interface {
 	CreateParagraphs(context.Context, *CreateParagraphsRequest) (*CreateParagraphsResponse, error)
 	CreateRegulation(context.Context, *CreateRegulationRequest) (*CreateRegulationResponse, error)
 	GenerateLinks(context.Context, *GenerateLinksRequest) (*empty.Empty, error)
+	DeleteRegulation(context.Context, *DeleteRegulationRequest) (*DeleteRegulationResponse, error)
 	mustEmbedUnimplementedRegulationGRPCServer()
 }
 
@@ -99,6 +110,9 @@ func (UnimplementedRegulationGRPCServer) CreateRegulation(context.Context, *Crea
 }
 func (UnimplementedRegulationGRPCServer) GenerateLinks(context.Context, *GenerateLinksRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GenerateLinks not implemented")
+}
+func (UnimplementedRegulationGRPCServer) DeleteRegulation(context.Context, *DeleteRegulationRequest) (*DeleteRegulationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteRegulation not implemented")
 }
 func (UnimplementedRegulationGRPCServer) mustEmbedUnimplementedRegulationGRPCServer() {}
 
@@ -185,6 +199,24 @@ func _RegulationGRPC_GenerateLinks_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _RegulationGRPC_DeleteRegulation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteRegulationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RegulationGRPCServer).DeleteRegulation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/RegulationGRPC/deleteRegulation",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RegulationGRPCServer).DeleteRegulation(ctx, req.(*DeleteRegulationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // RegulationGRPC_ServiceDesc is the grpc.ServiceDesc for RegulationGRPC service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -207,6 +239,10 @@ var RegulationGRPC_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GenerateLinks",
 			Handler:    _RegulationGRPC_GenerateLinks_Handler,
+		},
+		{
+			MethodName: "deleteRegulation",
+			Handler:    _RegulationGRPC_DeleteRegulation_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
