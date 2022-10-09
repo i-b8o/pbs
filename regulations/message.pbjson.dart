@@ -117,14 +117,14 @@ const Chapter$json = const {
   '2': const [
     const {'1': 'ID', '3': 1, '4': 1, '5': 4, '10': 'ID'},
     const {'1': 'Name', '3': 2, '4': 1, '5': 9, '10': 'Name'},
-    const {'1': 'Num', '3': 3, '4': 1, '5': 4, '10': 'Num'},
+    const {'1': 'Num', '3': 3, '4': 1, '5': 9, '10': 'Num'},
     const {'1': 'RegulationID', '3': 4, '4': 1, '5': 4, '10': 'RegulationID'},
     const {'1': 'OrderNum', '3': 5, '4': 1, '5': 4, '10': 'OrderNum'},
   ],
 };
 
 /// Descriptor for `Chapter`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List chapterDescriptor = $convert.base64Decode('CgdDaGFwdGVyEg4KAklEGAEgASgEUgJJRBISCgROYW1lGAIgASgJUgROYW1lEhAKA051bRgDIAEoBFIDTnVtEiIKDFJlZ3VsYXRpb25JRBgEIAEoBFIMUmVndWxhdGlvbklEEhoKCE9yZGVyTnVtGAUgASgEUghPcmRlck51bQ==');
+final $typed_data.Uint8List chapterDescriptor = $convert.base64Decode('CgdDaGFwdGVyEg4KAklEGAEgASgEUgJJRBISCgROYW1lGAIgASgJUgROYW1lEhAKA051bRgDIAEoCVIDTnVtEiIKDFJlZ3VsYXRpb25JRBgEIAEoBFIMUmVndWxhdGlvbklEEhoKCE9yZGVyTnVtGAUgASgEUghPcmRlck51bQ==');
 @$core.Deprecated('Use getTableOfContentsResponseDescriptor instead')
 const GetTableOfContentsResponse$json = const {
   '1': 'GetTableOfContentsResponse',

@@ -613,7 +613,7 @@ class Chapter extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Chapter', createEmptyInstance: create)
     ..a<$fixnum.Int64>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ID', $pb.PbFieldType.OU6, protoName: 'ID', defaultOrMaker: $fixnum.Int64.ZERO)
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Name', protoName: 'Name')
-    ..a<$fixnum.Int64>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Num', $pb.PbFieldType.OU6, protoName: 'Num', defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Num', protoName: 'Num')
     ..a<$fixnum.Int64>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'RegulationID', $pb.PbFieldType.OU6, protoName: 'RegulationID', defaultOrMaker: $fixnum.Int64.ZERO)
     ..a<$fixnum.Int64>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'OrderNum', $pb.PbFieldType.OU6, protoName: 'OrderNum', defaultOrMaker: $fixnum.Int64.ZERO)
     ..hasRequiredFields = false
@@ -623,7 +623,7 @@ class Chapter extends $pb.GeneratedMessage {
   factory Chapter({
     $fixnum.Int64? iD,
     $core.String? name,
-    $fixnum.Int64? num,
+    $core.String? num,
     $fixnum.Int64? regulationID,
     $fixnum.Int64? orderNum,
   }) {
@@ -685,9 +685,9 @@ class Chapter extends $pb.GeneratedMessage {
   void clearName() => clearField(2);
 
   @$pb.TagNumber(3)
-  $fixnum.Int64 get num => $_getI64(2);
+  $core.String get num => $_getSZ(2);
   @$pb.TagNumber(3)
-  set num($fixnum.Int64 v) { $_setInt64(2, v); }
+  set num($core.String v) { $_setString(2, v); }
   @$pb.TagNumber(3)
   $core.bool hasNum() => $_has(2);
   @$pb.TagNumber(3)
