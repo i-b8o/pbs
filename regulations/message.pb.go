@@ -500,6 +500,203 @@ func (x *GenerateLinksRequest) GetID() uint64 {
 	return 0
 }
 
+type GetTableOfContentsRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ID uint64 `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+}
+
+func (x *GetTableOfContentsRequest) Reset() {
+	*x = GetTableOfContentsRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_message_proto_msgTypes[8]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetTableOfContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTableOfContentsRequest) ProtoMessage() {}
+
+func (x *GetTableOfContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_message_proto_msgTypes[8]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTableOfContentsRequest.ProtoReflect.Descriptor instead.
+func (*GetTableOfContentsRequest) Descriptor() ([]byte, []int) {
+	return file_message_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *GetTableOfContentsRequest) GetID() uint64 {
+	if x != nil {
+		return x.ID
+	}
+	return 0
+}
+
+type Chapter struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ID           uint64 `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	Name         string `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
+	Num          uint64 `protobuf:"varint,3,opt,name=Num,proto3" json:"Num,omitempty"`
+	RegulationID uint64 `protobuf:"varint,4,opt,name=RegulationID,proto3" json:"RegulationID,omitempty"`
+	OrderNum     uint64 `protobuf:"varint,5,opt,name=OrderNum,proto3" json:"OrderNum,omitempty"`
+}
+
+func (x *Chapter) Reset() {
+	*x = Chapter{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_message_proto_msgTypes[9]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *Chapter) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Chapter) ProtoMessage() {}
+
+func (x *Chapter) ProtoReflect() protoreflect.Message {
+	mi := &file_message_proto_msgTypes[9]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Chapter.ProtoReflect.Descriptor instead.
+func (*Chapter) Descriptor() ([]byte, []int) {
+	return file_message_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *Chapter) GetID() uint64 {
+	if x != nil {
+		return x.ID
+	}
+	return 0
+}
+
+func (x *Chapter) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *Chapter) GetNum() uint64 {
+	if x != nil {
+		return x.Num
+	}
+	return 0
+}
+
+func (x *Chapter) GetRegulationID() uint64 {
+	if x != nil {
+		return x.RegulationID
+	}
+	return 0
+}
+
+func (x *Chapter) GetOrderNum() uint64 {
+	if x != nil {
+		return x.OrderNum
+	}
+	return 0
+}
+
+type GetTableOfContentsResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Abbreviation string     `protobuf:"bytes,1,opt,name=Abbreviation,proto3" json:"Abbreviation,omitempty"`
+	Title        string     `protobuf:"bytes,2,opt,name=Title,proto3" json:"Title,omitempty"`
+	Name         string     `protobuf:"bytes,3,opt,name=Name,proto3" json:"Name,omitempty"`
+	Chapters     []*Chapter `protobuf:"bytes,4,rep,name=Chapters,proto3" json:"Chapters,omitempty"`
+}
+
+func (x *GetTableOfContentsResponse) Reset() {
+	*x = GetTableOfContentsResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_message_proto_msgTypes[10]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetTableOfContentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTableOfContentsResponse) ProtoMessage() {}
+
+func (x *GetTableOfContentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_message_proto_msgTypes[10]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTableOfContentsResponse.ProtoReflect.Descriptor instead.
+func (*GetTableOfContentsResponse) Descriptor() ([]byte, []int) {
+	return file_message_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *GetTableOfContentsResponse) GetAbbreviation() string {
+	if x != nil {
+		return x.Abbreviation
+	}
+	return ""
+}
+
+func (x *GetTableOfContentsResponse) GetTitle() string {
+	if x != nil {
+		return x.Title
+	}
+	return ""
+}
+
+func (x *GetTableOfContentsResponse) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *GetTableOfContentsResponse) GetChapters() []*Chapter {
+	if x != nil {
+		return x.Chapters
+	}
+	return nil
+}
+
 var File_message_proto protoreflect.FileDescriptor
 
 var file_message_proto_rawDesc = []byte{
@@ -556,8 +753,28 @@ var file_message_proto_rawDesc = []byte{
 	0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x26, 0x0a, 0x14, 0x47,
 	0x65, 0x6e, 0x65, 0x72, 0x61, 0x74, 0x65, 0x4c, 0x69, 0x6e, 0x6b, 0x73, 0x52, 0x65, 0x71, 0x75,
 	0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52,
-	0x02, 0x49, 0x44, 0x42, 0x07, 0x5a, 0x05, 0x2e, 0x2f, 0x3b, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x33,
+	0x02, 0x49, 0x44, 0x22, 0x2b, 0x0a, 0x19, 0x47, 0x65, 0x74, 0x54, 0x61, 0x62, 0x6c, 0x65, 0x4f,
+	0x66, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x12, 0x0e, 0x0a, 0x02, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x49, 0x44,
+	0x22, 0x7f, 0x0a, 0x07, 0x43, 0x68, 0x61, 0x70, 0x74, 0x65, 0x72, 0x12, 0x0e, 0x0a, 0x02, 0x49,
+	0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x49, 0x44, 0x12, 0x12, 0x0a, 0x04, 0x4e,
+	0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x4e, 0x61, 0x6d, 0x65, 0x12,
+	0x10, 0x0a, 0x03, 0x4e, 0x75, 0x6d, 0x18, 0x03, 0x20, 0x01, 0x28, 0x04, 0x52, 0x03, 0x4e, 0x75,
+	0x6d, 0x12, 0x22, 0x0a, 0x0c, 0x52, 0x65, 0x67, 0x75, 0x6c, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x49,
+	0x44, 0x18, 0x04, 0x20, 0x01, 0x28, 0x04, 0x52, 0x0c, 0x52, 0x65, 0x67, 0x75, 0x6c, 0x61, 0x74,
+	0x69, 0x6f, 0x6e, 0x49, 0x44, 0x12, 0x1a, 0x0a, 0x08, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x4e, 0x75,
+	0x6d, 0x18, 0x05, 0x20, 0x01, 0x28, 0x04, 0x52, 0x08, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x4e, 0x75,
+	0x6d, 0x22, 0x90, 0x01, 0x0a, 0x1a, 0x47, 0x65, 0x74, 0x54, 0x61, 0x62, 0x6c, 0x65, 0x4f, 0x66,
+	0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x12, 0x22, 0x0a, 0x0c, 0x41, 0x62, 0x62, 0x72, 0x65, 0x76, 0x69, 0x61, 0x74, 0x69, 0x6f, 0x6e,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0c, 0x41, 0x62, 0x62, 0x72, 0x65, 0x76, 0x69, 0x61,
+	0x74, 0x69, 0x6f, 0x6e, 0x12, 0x14, 0x0a, 0x05, 0x54, 0x69, 0x74, 0x6c, 0x65, 0x18, 0x02, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x05, 0x54, 0x69, 0x74, 0x6c, 0x65, 0x12, 0x12, 0x0a, 0x04, 0x4e, 0x61,
+	0x6d, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x24,
+	0x0a, 0x08, 0x43, 0x68, 0x61, 0x70, 0x74, 0x65, 0x72, 0x73, 0x18, 0x04, 0x20, 0x03, 0x28, 0x0b,
+	0x32, 0x08, 0x2e, 0x43, 0x68, 0x61, 0x70, 0x74, 0x65, 0x72, 0x52, 0x08, 0x43, 0x68, 0x61, 0x70,
+	0x74, 0x65, 0x72, 0x73, 0x42, 0x07, 0x5a, 0x05, 0x2e, 0x2f, 0x3b, 0x70, 0x62, 0x62, 0x06, 0x70,
+	0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -572,24 +789,28 @@ func file_message_proto_rawDescGZIP() []byte {
 	return file_message_proto_rawDescData
 }
 
-var file_message_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
+var file_message_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
 var file_message_proto_goTypes = []interface{}{
-	(*CreateChapterRequest)(nil),     // 0: CreateChapterRequest
-	(*CreateChapterResponse)(nil),    // 1: CreateChapterResponse
-	(*Paragraph)(nil),                // 2: Paragraph
-	(*CreateParagraphsRequest)(nil),  // 3: CreateParagraphsRequest
-	(*CreateParagraphsResponse)(nil), // 4: CreateParagraphsResponse
-	(*CreateRegulationRequest)(nil),  // 5: CreateRegulationRequest
-	(*CreateRegulationResponse)(nil), // 6: CreateRegulationResponse
-	(*GenerateLinksRequest)(nil),     // 7: GenerateLinksRequest
+	(*CreateChapterRequest)(nil),       // 0: CreateChapterRequest
+	(*CreateChapterResponse)(nil),      // 1: CreateChapterResponse
+	(*Paragraph)(nil),                  // 2: Paragraph
+	(*CreateParagraphsRequest)(nil),    // 3: CreateParagraphsRequest
+	(*CreateParagraphsResponse)(nil),   // 4: CreateParagraphsResponse
+	(*CreateRegulationRequest)(nil),    // 5: CreateRegulationRequest
+	(*CreateRegulationResponse)(nil),   // 6: CreateRegulationResponse
+	(*GenerateLinksRequest)(nil),       // 7: GenerateLinksRequest
+	(*GetTableOfContentsRequest)(nil),  // 8: GetTableOfContentsRequest
+	(*Chapter)(nil),                    // 9: Chapter
+	(*GetTableOfContentsResponse)(nil), // 10: GetTableOfContentsResponse
 }
 var file_message_proto_depIdxs = []int32{
 	2, // 0: CreateParagraphsRequest.paragraphs:type_name -> Paragraph
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	9, // 1: GetTableOfContentsResponse.Chapters:type_name -> Chapter
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_message_proto_init() }
@@ -694,6 +915,42 @@ func file_message_proto_init() {
 				return nil
 			}
 		}
+		file_message_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetTableOfContentsRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_message_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*Chapter); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_message_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetTableOfContentsResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -701,7 +958,7 @@ func file_message_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_message_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   8,
+			NumMessages:   11,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
