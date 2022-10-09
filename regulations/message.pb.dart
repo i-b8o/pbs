@@ -611,7 +611,7 @@ class GetTableOfContentsRequest extends $pb.GeneratedMessage {
 
 class Chapter extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Chapter', createEmptyInstance: create)
-    ..a<$fixnum.Int64>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ID', $pb.PbFieldType.OU6, protoName: 'ID', defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ID', protoName: 'ID')
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Name', protoName: 'Name')
     ..a<$fixnum.Int64>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Num', $pb.PbFieldType.OU6, protoName: 'Num', defaultOrMaker: $fixnum.Int64.ZERO)
     ..a<$fixnum.Int64>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'RegulationID', $pb.PbFieldType.OU6, protoName: 'RegulationID', defaultOrMaker: $fixnum.Int64.ZERO)
@@ -621,7 +621,7 @@ class Chapter extends $pb.GeneratedMessage {
 
   Chapter._() : super();
   factory Chapter({
-    $fixnum.Int64? iD,
+    $core.String? iD,
     $core.String? name,
     $fixnum.Int64? num,
     $fixnum.Int64? regulationID,
@@ -667,9 +667,9 @@ class Chapter extends $pb.GeneratedMessage {
   static Chapter? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $fixnum.Int64 get iD => $_getI64(0);
+  $core.String get iD => $_getSZ(0);
   @$pb.TagNumber(1)
-  set iD($fixnum.Int64 v) { $_setInt64(0, v); }
+  set iD($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasID() => $_has(0);
   @$pb.TagNumber(1)
