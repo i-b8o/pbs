@@ -27,7 +27,6 @@ type RegulationGRPCClient interface {
 	CreateParagraphs(ctx context.Context, in *CreateParagraphsRequest, opts ...grpc.CallOption) (*CreateParagraphsResponse, error)
 	CreateRegulation(ctx context.Context, in *CreateRegulationRequest, opts ...grpc.CallOption) (*CreateRegulationResponse, error)
 	GenerateLinks(ctx context.Context, in *GenerateLinksRequest, opts ...grpc.CallOption) (*empty.Empty, error)
-	GetTableOfContents(ctx context.Context, in *GetTableOfContentsRequest, opts ...grpc.CallOption) (*GetTableOfContentsResponse, error)
 }
 
 type regulationGRPCClient struct {
@@ -74,15 +73,6 @@ func (c *regulationGRPCClient) GenerateLinks(ctx context.Context, in *GenerateLi
 	return out, nil
 }
 
-func (c *regulationGRPCClient) GetTableOfContents(ctx context.Context, in *GetTableOfContentsRequest, opts ...grpc.CallOption) (*GetTableOfContentsResponse, error) {
-	out := new(GetTableOfContentsResponse)
-	err := c.cc.Invoke(ctx, "/RegulationGRPC/GetTableOfContents", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // RegulationGRPCServer is the server API for RegulationGRPC service.
 // All implementations must embed UnimplementedRegulationGRPCServer
 // for forward compatibility
@@ -91,7 +81,6 @@ type RegulationGRPCServer interface {
 	CreateParagraphs(context.Context, *CreateParagraphsRequest) (*CreateParagraphsResponse, error)
 	CreateRegulation(context.Context, *CreateRegulationRequest) (*CreateRegulationResponse, error)
 	GenerateLinks(context.Context, *GenerateLinksRequest) (*empty.Empty, error)
-	GetTableOfContents(context.Context, *GetTableOfContentsRequest) (*GetTableOfContentsResponse, error)
 	mustEmbedUnimplementedRegulationGRPCServer()
 }
 
@@ -110,9 +99,6 @@ func (UnimplementedRegulationGRPCServer) CreateRegulation(context.Context, *Crea
 }
 func (UnimplementedRegulationGRPCServer) GenerateLinks(context.Context, *GenerateLinksRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GenerateLinks not implemented")
-}
-func (UnimplementedRegulationGRPCServer) GetTableOfContents(context.Context, *GetTableOfContentsRequest) (*GetTableOfContentsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetTableOfContents not implemented")
 }
 func (UnimplementedRegulationGRPCServer) mustEmbedUnimplementedRegulationGRPCServer() {}
 
@@ -199,24 +185,6 @@ func _RegulationGRPC_GenerateLinks_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RegulationGRPC_GetTableOfContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTableOfContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RegulationGRPCServer).GetTableOfContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/RegulationGRPC/GetTableOfContents",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RegulationGRPCServer).GetTableOfContents(ctx, req.(*GetTableOfContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 // RegulationGRPC_ServiceDesc is the grpc.ServiceDesc for RegulationGRPC service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -239,10 +207,6 @@ var RegulationGRPC_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GenerateLinks",
 			Handler:    _RegulationGRPC_GenerateLinks_Handler,
-		},
-		{
-			MethodName: "GetTableOfContents",
-			Handler:    _RegulationGRPC_GetTableOfContents_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
